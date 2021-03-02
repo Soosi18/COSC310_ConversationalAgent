@@ -153,7 +153,7 @@
         "context_set": ""
         },
         {"tag": "languages",
-        "patterns": ["what languages can you speak?", "do you know many languages?],
+        "patterns": ["what languages can you speak?", "do you know many languages?"],
         "responses": ["I can speak English and French very well", "I am fluent in both English and French"],
         "context_set": ""
         },

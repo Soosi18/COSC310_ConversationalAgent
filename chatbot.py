@@ -20,7 +20,7 @@ def chat():
         results = model.predict([l.bag_of_words(inp, words)])[0]
         results_index = numpy.argmax(results)
         tag = labels[results_index]
-        print(results)
+        #print(results)
         if results[results_index] > 0.8:
             for t in data["intents"]:
                 if t['tag'] == tag:

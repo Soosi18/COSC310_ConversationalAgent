@@ -36,8 +36,8 @@ class load:
 
                 if intent["tag"] not in labels:
                     labels.append(intent["tag"])
-
-            words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+            ignore_words = ['?', '.', '!']
+            words = [stemmer.stem(w.lower()) for w in words if w not in ignore_words]
             words = sorted(list(set(words)))
 
             labels = sorted(labels)
@@ -81,11 +81,9 @@ class load:
 
         model = tflearn.DNN(net)
         
-        try:
-            model.load("model.tflearn")
-        except:
-            model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-            model.save("model.tflearn")
+        
+        model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+        model.save("model.tflearn")
         self.words = words
         self.model = model
         self.labels = labels

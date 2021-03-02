@@ -144,7 +144,7 @@
         },
         {"tag": "weekend",
         "patterns": ["what do you like doing on the weekends?", "how do you spend your free time on weekends?", "how do you pass time on weekends?"],
-        "responses": ["I like spending my weekends with my kids.", "I like to read during the weekends", "I like to go for hikes during the weekend"]
+        "responses": ["I like spending my weekends with my kids.", "I like to read during the weekends", "I like to go for hikes during the weekend"],
         "context_set": ""
         },
         {"tag": "languages",

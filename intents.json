@@ -98,13 +98,13 @@
         "context_set": ""
         },
         {"tag": "childrennumber",
-        "patterns": ["how many children do you have", "how many children do you and Sophie Gregoire have", "do you have any children"],
-        "responses": ["I am currently the father of 3 children."],
+        "patterns": ["how many children do you have", "how many children do you and Sophie Gregoire have", "do you have any children", "do you have kids", "how many kids do you have"],
+        "responses": ["I am currently the father of 3 children.", "I have 3 kids."],
         "context_set": ""
         },
         {"tag": "childrennames",
-        "patterns": ["what are the names of your children", "who are your children"],
-        "responses": ["My childrens' names are Xavier, Ella-Grace, and Hadrien.", "From oldest to youngest, my childrens' names are Xavier, Ella-Grace, and Hadrien."],
+        "patterns": ["what are the names of your children", "who are your children", "what are your kids' names", "what are the names of your kids"],
+        "responses": ["My childrens' names are Xavier, Ella-Grace, and Hadrien.", "From oldest to youngest, my childrens' names are Xavier, Ella-Grace, and Hadrien.", "My kids' names are Xavier, Ella-Grace, and Hadrien."],
         "context_set": ""
         },
         {"tag": "twitter",

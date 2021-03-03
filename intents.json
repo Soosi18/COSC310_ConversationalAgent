@@ -57,7 +57,7 @@
          "context_set": ""
         },
         {"tag": "growingup",
-         "patterns": ["what did you want to be when you grew up", "what did you want to do growing up", ""],
+         "patterns": ["what did you want to be when you grew up", "what did you want to do growing up"],
          "responses": ["I wanted to be an astronaut growing up", "an astronaut", "when I was little I wanted to be an astronaut"],
          "context_set": ""
         },

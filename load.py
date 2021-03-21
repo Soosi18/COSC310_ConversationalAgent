@@ -1,4 +1,4 @@
-#This file is the backbone of the chatbot and uses deeplearning to get a probability for a matching tag based on a user's input
+#This file is the backbone of the chatbot and uses deep learning to get a probability for a matching tag based on a user's input
 #Does all the processing of the data and feeds it to a neural network.
 import nltk     #nltk to process sentences
 from nltk.stem.lancaster import LancasterStemmer
@@ -21,7 +21,7 @@ class load:
     
 
     def Process(self):
-        #try to open the data.pickle file, if it can't it will process the json file
+        #try to open the data.pickle file. If it can't, it will process the json file.
         try:
             with open("data.pickle", "rb") as f:
                 words, labels, training, output = pickle.load(f)
@@ -32,7 +32,7 @@ class load:
             docs_y = []
             data = self.data
 
-            #we grab all the patterns from the intents file and process them by tokenizing all the words, removing ?, . , !, stemming the words
+            #Grab all the patterns from the intents file and process them by tokenizing all the words, removing ?, . , !, stemming the words
             #and sorting them into a list, removing the duplicates.
             for intent in data["intents"]:
                 for pattern in intent["patterns"]:
@@ -43,7 +43,7 @@ class load:
 
                 if intent["tag"] not in labels:
                     labels.append(intent["tag"])
-            ignore_words = ['?', '.', '!']
+            ignore_words = ['?', '.', '!',"'"]
             words = [stemmer.stem(w.lower()) for w in words if w not in ignore_words]
             words = sorted(list(set(words)))
 
@@ -88,7 +88,7 @@ class load:
         net = tflearn.regression(net)
 
         model = tflearn.DNN(net)
-        #try to load the tflearn model if it exists, as not to have to run all the data again, else run it and save the model
+        # try to load the tflearn model if it exists, as not to have to run all the data again, else run it and save the model
         try:
             model.load("model.tflearn")
         except:

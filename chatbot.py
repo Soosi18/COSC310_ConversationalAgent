@@ -3,9 +3,7 @@
 from load import load  #import load function from load.py
 import numpy           #numpy for use of numpy.argmax 
 import random          #random for grabbing a random response from the matching tag
-from nltk.corpus import wordnet as wn 
-from pycorenlp import StanfordCoreNLP
-import nltk
+from syn_recognition import synonym_sentences
 
 #load in the json file
 l = load("intents.json")
@@ -21,7 +19,7 @@ labels = l.getLabels()
 def chat(user_inp, *args):
     while True:
         #Run every sentence with different synonym combinations till one is recognized
-        sentence_list = pos_tag_and_synonyms(user_inp)
+        sentence_list = synonym_sentences(user_inp)
         for inp in sentence_list:
             print(inp)
             #results will hold the predicted value of the tags in corrispondence with the user's input    
@@ -45,68 +43,7 @@ def chat(user_inp, *args):
 
         return "I didn't quite understand"
 
-# This function takes in the user's input sentence, assigns Part-of-Speech tags to each word, then pulls the nouns, exclamations(greetings) and verbs into a list
-# From this list, it finds synonyms and broader/more specific terms related to each word, replaces them with the original word in the sentence and adds it to a sentences list
-# Splits any compound words separated by hyphens.
-# Returns the list of sentences (including user's input sentence) with key words replaced by different synonyms in each sentence.
-def pos_tag_and_synonyms(sentence):
 
-    # Set up the Stanford CoreNLP Server
-    nlp = StanfordCoreNLP('http://localhost:9000')
 
-    # Final sentence list has user's input as first sentence
-    sentence_list = [sentence]
 
-    # Use the API to POS-tag the sentence and get a json file back as output
-    output = nlp.annotate(sentence, properties = 
-    {
-        'annotators': 'pos',
-        'outputFormat': 'json',
-    })
-    
-    # list_replacements will contain all important words that we will find synonyms for. If word matches the POS tag, add it to the list.
-    # Run a loop that iterates over each word in the sentence we take in as input.
-    # POS-tags: NN - Noun(Singular), NNS - Noun(Plural), UH - Exclamation/Greeting, VB - Verb
-    list_replacements = []
-    for sent in output['sentences']:
-        for word in sent['tokens']:
-            if word['pos'] == 'NNS' or word['pos'] == 'NN' or word['pos'] == 'UH' or word['pos'] == 'VB':
-                list_replacements.append(word['word'])
-
-    # If no useful words found, return list containing only user's initial input sentence.
-    if list_replacements == None:
-        return sentence_list
-    
-    # For each replacable word, find synsets. If they don't exist, return user's initial sentence.
-    for word in list_replacements:
-        syn = wn.synsets(word)
-        if syn is None:
-            return sentence_list
-
-        # For each synonym in the synset, find hypernyms(Broader-category words) and hyponyms(more specific words) and add them to their own lists.
-        # If they dont exist, keep their lists empty to avoid crashes.
-        for each_syn in syn:
-            try:
-                list_hypernyms = each_syn.hypernyms()
-                list_hyponyms = each_syn.hyponyms()
-            except:
-                list_hypernyms = []
-                list_hyponyms = []
-
-            # list_newwords contains lists of hyper/hyponyms and words similar to them that we are going to use to replace the original words in the sentence.
-            list_newwords = []
-            for hyponym in list_hyponyms:
-                list_newwords.append(hyponym.lemma_names())
-
-            for hypernym in list_hypernyms:
-                list_newwords.append(hypernym.lemma_names())
-            # Replacing original sentence with new words and adding it to sentences_list
-            for list in list_newwords:
-                for newword in list:
-                    if "_" in newword:
-                        newword = newword.replace("_", " ")
-                    sentence_list.append(sentence.replace(word, newword))
-
-    # Return sentences_list containing many different sentences with different combinations of synonyms
-    return sentence_list
     

@@ -4,6 +4,7 @@
 from load import load  #import load function from load.py
 import numpy           #numpy for use of numpy.argmax 
 import random          #random for grabbing a random response from the matching tag
+<<<<<<< HEAD
 from nltk.corpus import wordnet as wn 
 from pycorenlp import StanfordCoreNLP
 import nltk
@@ -13,6 +14,9 @@ from sentiment import sentiment #import sentiment function from sentiment.py
 import numpy                    #numpy for use of numpy.argmax 
 import random                   #random for grabbing a random response from the matching tag
 >>>>>>> .merge_file_a03716
+=======
+from syn_recognition import synonym_sentences
+>>>>>>> sarvagya_gui_pos_syn
 
 #load in the json file
 l = load("intents.json")
@@ -29,7 +33,7 @@ labels = l.getLabels()
 def chat(user_inp, *args):
     while True:
         #Run every sentence with different synonym combinations till one is recognized
-        sentence_list = pos_tag_and_synonyms(user_inp)
+        sentence_list = synonym_sentences(user_inp)
         for inp in sentence_list:
             print(inp)
 =======
@@ -78,18 +82,10 @@ def chat():
 
         return "I didn't quite understand"
 
-# This function takes in the user's input sentence, assigns Part-of-Speech tags to each word, then pulls the nouns, exclamations(greetings) and verbs into a list
-# From this list, it finds synonyms and broader/more specific terms related to each word, replaces them with the original word in the sentence and adds it to a sentences list
-# Splits any compound words separated by hyphens.
-# Returns the list of sentences (including user's input sentence) with key words replaced by different synonyms in each sentence.
-def pos_tag_and_synonyms(sentence):
 
-    # Set up the Stanford CoreNLP Server
-    nlp = StanfordCoreNLP('http://localhost:9000')
 
-    # Final sentence list has user's input as first sentence
-    sentence_list = [sentence]
 
+<<<<<<< HEAD
     # Use the API to POS-tag the sentence and get a json file back as output
     output = nlp.annotate(sentence, properties = 
     {
@@ -153,4 +149,6 @@ chat()
 
     # Return sentences_list containing many different sentences with different combinations of synonyms
     return sentence_list
+=======
+>>>>>>> sarvagya_gui_pos_syn
     

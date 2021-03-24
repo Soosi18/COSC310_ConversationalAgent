@@ -39,10 +39,10 @@ class sentiment:
         #determines level of sentiment
         #3 = good; 0 = bad
         if sentiment >= 3:
-            print("Glad to hear you really like that.")
+            return "Glad to hear you really like that."
         elif sentiment >= 2:
-            print("I fully agree.")
+            return "I fully agree."
         elif sentiment >= 1:
-            print("I can understand that.")
+            return "I can understand that."
         else:
-            print("Sorry to hear that.")
+            return "Sorry to hear that."

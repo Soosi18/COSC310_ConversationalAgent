@@ -2,8 +2,6 @@ import nltk
 from nltk.corpus import wordnet as wn 
 from pycorenlp import StanfordCoreNLP
 
-
-
 # This function takes in the user's input sentence, assigns Part-of-Speech tags to each word, then places the nouns and verbs into a dictionary.
 def pos_tag(sentence):
 
@@ -29,8 +27,8 @@ def pos_tag(sentence):
             if word['pos'] == 'NNS' or word['pos'] == 'NN':
                 dict_replacements[word['word']] = 'n'
                 
-            elif word['pos'] == 'VB':
-                dict_replacements[word['word']] = 'v'
+            #elif word['pos'] == 'VB':
+                #dict_replacements[word['word']] = 'v'
 
     return dict_replacements            
 

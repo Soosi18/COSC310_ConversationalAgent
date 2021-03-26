@@ -27,9 +27,6 @@ def pos_tag(sentence):
             if word['pos'] == 'NNS' or word['pos'] == 'NN':
                 dict_replacements[word['word']] = 'n'
                 
-            #elif word['pos'] == 'VB':
-                #dict_replacements[word['word']] = 'v'
-
     return dict_replacements            
 
 

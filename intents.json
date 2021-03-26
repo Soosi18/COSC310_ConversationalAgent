@@ -209,7 +209,7 @@
         "context_set": ""
         },
         {"tag": "dadprimeminister",
-        "patterns": ["What year did you dad become Prime Minister?", "What was the year your dad was elected as Prime Minister?"],
+        "patterns": ["What year did your dad become Prime Minister?", "What was the year your dad was elected as Prime Minister?"],
         "responses": ["My dad became Prime Minister in 1965", "The year my dad became Prime Minister was in 1965", "My dad was elected as Prime Minister in 1965"],
         "context_set": ""
         },

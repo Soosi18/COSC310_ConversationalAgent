@@ -53,8 +53,8 @@ def chat(user_inp, *args):
                             responses = t['responses']
 
                     return random.choice(responses)
-
-            return "I didn't quite understand"
+            others = ["I didn't quite understand", "I failed to understand what you were trying to say!", "Come again?", "Could you please repeat that for me?", "What language is that?"]
+            return random.choice(others)
 
         else:
             #Determines sentiment value and returns appropriate response.

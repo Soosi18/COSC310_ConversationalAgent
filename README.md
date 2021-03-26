@@ -61,34 +61,34 @@ We have also implemented some features to further enhance the user's experience 
 ### 1. Graphical User Interface(GUI)
 A simple GUI was implemented to provide a much more appealing way of using the chat bot. This GUI was made using Tkinter and image functionalities from Pillow were utilized. It consists of a medium-sized window with a text box(to display the conversation), an entry box(for the user to type their message in), a 'Send' button which can be pressed to send the typed message to the bot(They can also choose to press 'Enter'), and various other smaller features such as a label containing the image and name of the person who the bot is based on, and a scrollbar for the user to access/read older sections of the conversation. Here is an image showcasing the GUI with a few turns of conversation:
 
-![GUI](.\images\GUI_sample.PNG)
+![GUI](/images/GUI_sample.PNG)
 
 ### 2. Part-of-Speech(POS) Tagging
 Stanford's CoreNLP Toolkit is used to tokenize and categorize each word in the user's input sentence to specific parts of speech. If the word's POS matches with the one specified, it is placed into a dictionary of words that would be later used for another feature. The values assigned to each word is their corresponding POS, which is converted from Stanford's CoreNLP format to NLTK.WordNet's format. Here is an image displaying sample output for a possible sentence that the user could input, and its breakdown into different parts of speech, along with the dictionary of key words(Note: The following output is not visible in the final version of the application. This image is for demonstration purposes only):
 
-![POS](.\images\POS_sample.PNG)
+![POS](/images/POS_sample.PNG)
 
 ### 3. Synonym Recognition
 A lexical database in the form of NLTK's WordNet is used to find synonyms of key words from the user's input sentence(see above feature on how to get these 'key words'). The original word is then replaced by each of these synonyms to form a new sentence, each of which is stored in a list. This list is returned to ```chatbot.py``` where each sentences in incrementally sent to the bot until it recognizes one and forms an appropriate response. If none of the sentences manage to get recognized, an appropriate message from the bot is shown to the user instead(Note: The first sentence in the list is always the user's original input). The following image showcases the bot's ability to recognize different words as synonyms of each other and provide the same type of response to all sentences:
 
-![SYN](.\images\SYN_sample.PNG)
+![SYN](/images/SYN_sample.PNG)
 
 ### 4. Sentiment Analysis
 The CoreNLP Toolkit is also used to perform Sentiment Analysis; it detects words in the sentence that have different levels of sentiment and provides an integer value from 0-3 based on how positive or negative the sentiment is. The bot then responds appropriately based on the sentiment number generated from the sentence. Here is a sample image of the bot responding to different levels of sentiment with the user's input sentences:
 
-![SENT](.\images\SENT_sample.PNG)
+![SENT](/images/SENT_sample.PNG)
 
 ### 5. Extra Topic of Conversation
 The bot now supports conversation about his father, Pierre Trudeau and his relationship with him. The following image demonstrates some new possible combinations of dialogue with the bot:
 
-![CONV](.\images\CONV_sample.PNG)
+![CONV](/images/CONV_sample.PNG)
 
 ### 6. Varied 'Fail' Responses
 When the bot fails to recognize a sentence input by the user, it now has the possibility to reply with 5 different responses instead of just one. The image below showcases this new feature:
 
-![FAIL](.\images\FAIL_sample.PNG)
+![FAIL](/images/FAIL_sample.PNG)
 
 ### Spelling Error Detection
 The Lancaster Stemmer Algorithm tokenizes the words in the user's input sentence, stems them to provide the root words, removes 'stop words' and as a result, can handle minor spelling errors. The following image shows the bot's ability to respond appropriately even if the input sentence has minor errors in spelling:
 
-![SPELL](.\images\SPELL_sample.PNG)
+![SPELL](/images/SPELL_sample.PNG)

@@ -39,6 +39,7 @@ def chat(user_inp, *args):
                 #Grab the highest result and store it in results_index
                 results_index = numpy.argmax(results)
                 #Grab the tag belonging to the highest result
+                global tag
                 tag = labels[results_index]
                 #Un-comment the code below to see the probability % of each tag that matches in results, and the tag that has the max probability.
                 #print(results)

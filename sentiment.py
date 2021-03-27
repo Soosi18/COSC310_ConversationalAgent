@@ -11,9 +11,9 @@ class sentiment:
         #list of starting words in intents.json
         #used as statements/questions in intents.json do not have any sentiment
         startingWord = ["who", "what", "where", "when", "why", "how", "is", "do", 
-                        "can", "what's" "hi", "hello", "whats", "good", "bye", 
+                        "can", "what's", "hi", "hello", "whats", "good", "bye", 
                         "cya", "see", "goodbye", "have", "tell", "make", "are", 
-                        "will", "which"]
+                        "will", "which", "did"]
         #checks if the input starts with one of the starting words
         for word in startingWord:
             if self.inp.lower().startswith(word):

@@ -53,6 +53,7 @@ def chat(user_inp, *args):
                             responses = t['responses']
 
                     return random.choice(responses)
+            global others
             others = ["I didn't quite understand", "I failed to understand what you were trying to say!", "Come again?", "Could you please repeat that for me?", "What language is that?"]
             return random.choice(others)
 

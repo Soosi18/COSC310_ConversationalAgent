@@ -39,10 +39,10 @@ class sentiment:
         #determines level of sentiment
         #3 = good; 0 = bad
         if sentiment >= 3:
-            return "Glad to hear you really like that."
+            return "Wow, they sure have a strong opinion about me!"
         elif sentiment >= 2:
-            return "I fully agree."
+            return "Hmm...All I can say is 'interesting'"
         elif sentiment >= 1:
-            return "I can understand that."
+            return "This was not what I was expecting to find..."
         else:
-            return "Sorry to hear that."
+            return "I don't quite understand the point of this tweet."

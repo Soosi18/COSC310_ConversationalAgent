@@ -112,6 +112,26 @@
         "responses": ["My twitter username is @justintrudeau.", "I have a twitter. It is @justintrudeau.", "You can follow me on Twitter. It is @justintrudeau"],
         "context_set": ""
         },
+        {"tag": "lasttweet",
+        "patterns": ["What was your last tweet?", "What is your last tweet?", "What's the latest tweet on your feed?", "What did you tweet about recently?"],
+        "responses": [],
+        "context_set" : ""
+        },
+        {"tag": "recenttweet",
+        "patterns": ["What are some recent tweets about you?", "What do you think the recent tweets say about you?"],
+        "responses": [],
+        "context_set": ""
+        },
+        {"tag": "definition",
+        "patterns": ["What is the definition of", "Can you tell me the definition of"],
+        "responses": [],
+        "context_set": ""
+        },
+        {"tag": "importantpolitics",
+        "patterns": ["Can you tell me about some important politics definitions?", "Can you tell about important political terms?", "Can you tell me about important terms in politics?"],
+        "responses": [],
+        "context_set": ""
+        },
         {"tag": "restaurant",
         "patterns": ["what is your favourite restaurant", "where do you like to eat", "what is your favourite place to eat"],
         "responses": ["My favourite restaurant is Sakura Gardens.", "I love to eat at Sakura Gardens."],

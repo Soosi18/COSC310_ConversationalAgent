@@ -1,0 +1,2 @@
+model_checkpoint_path: "D:\\Git\\310\\COSC310_ConversationalAgent\\model.tflearn"
+all_model_checkpoint_paths: "D:\\Git\\310\\COSC310_ConversationalAgent\\model.tflearn"

@@ -9,7 +9,7 @@ from PIL import ImageTk, Image
 
 # Create unresizable window and title it "Interactive Chatbot"
 root = Tk()
-root.resizable(0,0)
+#root.resizable(0,0)
 root.title("Interactive Chatbot")
 
 

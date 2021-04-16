@@ -7,6 +7,9 @@ from sentiment import sentiment #import sentiment function from sentiment.py
 import numpy #numpy for use of numpy.argmax 
 import random #random for grabbing a random response from the matching tag
 from syn_recognition import synonym_sentences # import synonym_sentences function from syn_recognition.py
+import get_tweets as twt 
+import wikiAPI as wk
+
 
 #load in the json file
 l = load("intents.json")
@@ -16,7 +19,8 @@ l.Process()
 model = l.getModel()
 words = l.getWords()
 labels = l.getLabels()
-
+twit_tags = ["lasttweet", "recenttweet"]
+wk_tags = ["definition", "importantpolitics"]
 
 #This method takes in user input from the Entry box in the GUI, and returns an appropriate response from the bot.
 def chat(user_inp, *args):
@@ -49,10 +53,20 @@ def chat(user_inp, *args):
                 #response or for it to say "it didn't understand"
                 if results[results_index] > 0.8:
                     for t in data["intents"]:
+                        for word in twit_tags:
+                            if tag == word:
+                                return twt.choose(word)
+
+                        for word in wk_tags:
+                            if tag == word:
+                                return wk.choosedef(tag, inp)
+
                         if t['tag'] == tag:
                             responses = t['responses']
 
+                        
                     return random.choice(responses)
+                     
             global others
             others = ["I didn't quite understand", "I failed to understand what you were trying to say!", "Come again?", "Could you please repeat that for me?", "What language is that?"]
             return random.choice(others)
